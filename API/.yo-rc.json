@@ -1,6 +1,5 @@
 {
   "generator-kraken": {
-    "taskModule": "grunt",
     "lintModule": "eslint",
     "description": "Teste Entrevista NS",
     "author": "Luiz Felipe Neves",

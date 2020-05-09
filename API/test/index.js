@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /*global describe:false, it:false, beforeEach:false, afterEach:false*/
 
 "use strict";
@@ -5,7 +6,9 @@
 var kraken = require("kraken-js"),
     express = require("express"),
     path = require("path"),
-    request = require("supertest");
+    request = require("supertest"),
+    chai = require("chai"),
+    expect = chai.expect;
 
 describe("index", function () {
     var app, mock;
@@ -15,7 +18,7 @@ describe("index", function () {
         app.on("start", done);
         app.use(
             kraken({
-                basedir: path.resolve(__dirname, ".."),
+                basedir: path.resolve(__dirname, "..")
             })
         );
 
@@ -26,16 +29,21 @@ describe("index", function () {
         mock.close(done);
     });
 
-    it('should have model name "index"', function (done) {
+    it("should to validated index", function (done) {
         request(mock)
             .get("/")
             .expect(200)
-            .expect("Content-Type", /html/)
-
-            .expect(/"name": "index"/)
-
+            .expect("Content-Type", /json/)
             .end(function (err, res) {
-                done(err);
+                if (err) {
+                    return done(err);
+                }
+                expect(res.body.diasPrimeiroAeroporto).exist;
+                expect(res.body.diasTodosAeroportos).exist;
+                expect(res.body.mapa).exist;
+                expect(res.body.mapa).length(10);
+                expect(res.body.mapa[0]).length(10);
+                return done();
             });
     });
 });

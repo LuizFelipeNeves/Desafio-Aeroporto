@@ -4,12 +4,13 @@
         "quotes": [2, "double", "avoid-escape"],
         "linebreak-style": [2, "unix"],
         "semi": [2, "always"],
-        "no-console": 1
+        "no-console": 0,
+        "no-const-assign": 0
     },
     "env": {
         "node": true,
         "browser": true,
         "mocha": true
     },
-    "extends": "airbnb"
+    "extends": "eslint:recommended"
 }

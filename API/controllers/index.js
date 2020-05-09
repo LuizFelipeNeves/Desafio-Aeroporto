@@ -1,13 +1,22 @@
-"use strict";
+var model = require("../utils");
+var gerarMapa = model.gerarMapa;
+var resolucao = model.resolucao;
 
-const IndexModel = require("../models");
+module.exports = function (router) {
+    router.get("/", function (req, res) {
+        var nuvens = req.query.nuvens;
+        var aeroportos = req.query.aeroportos;
+        var linhas = req.query.linhas;
+        var colunas = req.query.colunas;
 
-module.exports = (router) => {
-    const model = new IndexModel();
+        var map = gerarMapa(nuvens, aeroportos, linhas, colunas);
 
-    router.get("/", (req, res) => {
-        res.send(
-            "<code><pre>" + JSON.stringify(model, null, 2) + "</pre></code>"
-        );
+        var response = resolucao(aeroportos, map);
+
+        return res.send({
+            diasPrimeiroAeroporto: response.diasPrimeiroAeroporto,
+            diasTodosAeroportos: response.diasTodosAeroportos,
+            mapa: response.mapa
+        });
     });
 };

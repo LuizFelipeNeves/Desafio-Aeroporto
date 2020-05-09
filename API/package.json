@@ -5,31 +5,21 @@
     "author": "Luiz Felipe Neves",
     "main": "index.js",
     "scripts": {
-        "test": "grunt test",
-        "build": "grunt build",
+        "test": "mocha",
+        "fixlint": "eslint -c .eslintrc . --fix",
+        "build": "npm run fixlint && npm run test",
         "dev": "nodemon server.js",
-        "all": "npm run build && npm run test"
+        "start": "node server.js"
     },
     "dependencies": {
+        "chai": "^4.2.0",
         "construx": "^1.0.0",
         "construx-copier": "^1.0.0",
+        "eslint": "^1.10.3",
         "express": "^4.12.2",
         "kraken-js": "^2.0.0"
     },
     "devDependencies": {
-        "eslint": "^6.8.0",
-        "eslint-config-airbnb": "^18.1.0",
-        "eslint-plugin-import": "^2.20.1",
-        "eslint-plugin-jsx-a11y": "^6.2.3",
-        "eslint-plugin-react": "^7.19.0",
-        "eslint-plugin-react-hooks": "^4.0.0",
-        "grunt": "^0.4.5",
-        "grunt-cli": "^0.1.13",
-        "grunt-config-dir": "^0.3.2",
-        "grunt-contrib-clean": "^0.6.0",
-        "grunt-copy-to": "0.0.10",
-        "grunt-eslint": "^17.3.2",
-        "grunt-mocha-cli": "^1.14.0",
         "mocha": "^1.18.0",
         "nodemon": "^2.0.3",
         "sucrase": "^3.13.0",
