@@ -7,6 +7,7 @@
     "scripts": {
         "test": "grunt test",
         "build": "grunt build",
+        "dev": "nodemon server.js",
         "all": "npm run build && npm run test"
     },
     "dependencies": {
@@ -19,6 +20,9 @@
         "eslint": "^6.8.0",
         "eslint-config-airbnb": "^18.1.0",
         "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-react": "^7.19.0",
+        "eslint-plugin-react-hooks": "^4.0.0",
         "grunt": "^0.4.5",
         "grunt-cli": "^0.1.13",
         "grunt-config-dir": "^0.3.2",
@@ -27,6 +31,8 @@
         "grunt-eslint": "^17.3.2",
         "grunt-mocha-cli": "^1.14.0",
         "mocha": "^1.18.0",
+        "nodemon": "^2.0.3",
+        "sucrase": "^3.13.0",
         "supertest": "^0.9.0"
     }
 }
