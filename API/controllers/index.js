@@ -1,22 +1,18 @@
-var model = require("../utils");
-var gerarMapa = model.gerarMapa;
-var resolucao = model.resolucao;
+const { gerarMapa, resolucao } = require("../utils");
 
-module.exports = function (router) {
-    router.get("/", function (req, res) {
-        var nuvens = req.query.nuvens;
-        var aeroportos = req.query.aeroportos;
-        var linhas = req.query.linhas;
-        var colunas = req.query.colunas;
+module.exports = (router) => {
+    router.get("/", (req, res) => {
+        const {
+            nuvens, aeroportos, linhas, colunas,
+        } = req.query;
+        const map = gerarMapa(nuvens, aeroportos, linhas, colunas);
 
-        var map = gerarMapa(nuvens, aeroportos, linhas, colunas);
-
-        var response = resolucao(aeroportos, map);
+        const { diasPrimeiroAeroporto, diasTodosAeroportos, mapa } = resolucao(aeroportos, map);
 
         return res.send({
-            diasPrimeiroAeroporto: response.diasPrimeiroAeroporto,
-            diasTodosAeroportos: response.diasTodosAeroportos,
-            mapa: response.mapa
+            diasPrimeiroAeroporto,
+            diasTodosAeroportos,
+            mapa,
         });
     });
 };

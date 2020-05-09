@@ -1,28 +1,26 @@
-var model = require("../../models");
-var Configs = model.Configs;
-var Points = model.Points;
+const { Configs, Points } = require("../../models");
 
-var aplicarItem = require("../aplicarItem");
+const aplicarItem = require("../aplicarItem");
 
-var _novoMapa = function (linhas, colunas) {
-    var map = [];
-    for (var x = 0; x < linhas; x++) {
-        var items = [];
-        for (var y = 0; y < colunas; y++) {
-            items.push({ x: x, y: y, tipo: Points.vazio });
+const novoMapa = (linhas, colunas) => {
+    const map = [];
+    for (let x = 0; x < linhas; x += 1) {
+        const items = [];
+        for (let y = 0; y < colunas; y += 1) {
+            items.push({ x, y, tipo: Points.vazio });
         }
         map.push(items);
     }
     return map;
 };
 
-var gerarMapa = function (nuvens, aeroportos, linhas, colunas) {
-    nuvens = nuvens || Configs.minimoNuvens;
-    aeroportos = aeroportos || Configs.minimoAeroportos;
-    linhas = linhas || Configs.minimoLinhas;
-    colunas = colunas || Configs.minimoColunas;
-
-    var map = _novoMapa(linhas, colunas);
+const gerarMapa = (
+    nuvens = Configs.minimoNuvens,
+    aeroportos = Configs.minimoAeroportos,
+    linhas = Configs.minimoLinhas,
+    colunas = Configs.minimoColunas,
+) => {
+    const map = novoMapa(linhas, colunas);
 
     aplicarItem(aeroportos, map, Points.aeroporto);
     aplicarItem(nuvens, map, Points.nuvem);

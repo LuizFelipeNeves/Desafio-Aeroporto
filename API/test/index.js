@@ -1,40 +1,38 @@
 /* eslint-disable no-undef */
-/*global describe:false, it:false, beforeEach:false, afterEach:false*/
+const kraken = require("kraken-js");
+const express = require("express");
+const path = require("path");
+const request = require("supertest");
+const chai = require("chai");
 
-"use strict";
+const { expect } = chai;
 
-var kraken = require("kraken-js"),
-    express = require("express"),
-    path = require("path"),
-    request = require("supertest"),
-    chai = require("chai"),
-    expect = chai.expect;
+describe("index", () => {
+    let app; let
+        mock;
 
-describe("index", function () {
-    var app, mock;
-
-    beforeEach(function (done) {
+    beforeEach((done) => {
         app = express();
         app.on("start", done);
         app.use(
             kraken({
-                basedir: path.resolve(__dirname, "..")
-            })
+                basedir: path.resolve(__dirname, ".."),
+            }),
         );
 
         mock = app.listen(1337);
     });
 
-    afterEach(function (done) {
+    afterEach((done) => {
         mock.close(done);
     });
 
-    it("should to validated index", function (done) {
+    it("should to validated index", (done) => {
         request(mock)
             .get("/")
             .expect(200)
             .expect("Content-Type", /json/)
-            .end(function (err, res) {
+            .end((err, res) => {
                 if (err) {
                     return done(err);
                 }

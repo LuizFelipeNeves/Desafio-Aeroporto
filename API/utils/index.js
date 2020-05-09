@@ -1,4 +1,4 @@
-var gerarMapa = require("./gerarMapa");
-var resolucao = require("./resolucao");
+const gerarMapa = require("./gerarMapa");
+const resolucao = require("./resolucao");
 
-module.exports = { gerarMapa: gerarMapa, resolucao: resolucao };
+module.exports = { gerarMapa, resolucao };

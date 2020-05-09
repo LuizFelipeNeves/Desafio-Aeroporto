@@ -1,16 +1,15 @@
-"use strict";
 
-var app = require("./index");
-var http = require("http");
-
-var server;
+const http = require("http");
+const app = require("./index");
 
 /*
  * Create and start HTTP server.
  */
 
-server = http.createServer(app);
-server.listen(process.env.PORT || 8000);
-server.on("listening", function () {
-    console.log("Server listening on http://localhost:%d", this.address().port);
+const server = http.createServer(app);
+const port = process.env.PORT || 8000;
+
+server.listen(port);
+server.on("listening", () => {
+    console.log("Server listening on http://localhost:%d", port);
 });
