@@ -29,7 +29,7 @@ Dados um quadriculado com L linhas e C colunas, além da indicação inicial das
 - Nodemon
 - ES6
 
-### Pendencias/Melhorias API:
+### Melhorias API:
  - Sem docker-compose!
  - Sem typescript!
  - Sem metricas com JEST.
@@ -38,7 +38,7 @@ Dados um quadriculado com L linhas e C colunas, além da indicação inicial das
  - Sem Validação dos inputs/Limites.
  - Uso de classes.
 
-### Pendencias/Melhorias FrontEnd:
+### Melhorias FrontEnd:
  - Sem react-redux, persist.
  - Sem tests
  - Sem Validação dos inputs
