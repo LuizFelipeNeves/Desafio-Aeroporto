@@ -17,6 +17,13 @@
                 ]
             }
         },
+        "cors": {
+            "enabled": true,
+            "priority": 119,
+            "module": {
+              "name": "path:./middlewares/cors"
+            }
+        },
         "router": {
             "module": {
                 "arguments": [
