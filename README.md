@@ -30,15 +30,15 @@ Dados um quadriculado com L linhas e C colunas, além da indicação inicial das
 - ES6
 
 ### Melhorias API:
- - Sem docker-compose!
- - Sem typescript!
- - Sem metricas com JEST.
- - Sem cobertura total.
- - Sem build com sucrase.
- - Sem Validação dos inputs/Limites.
+ - Docker-compose!
+ - Typescript!
+ - Metricas com JEST.
+ - Cobertura total.
+ - Build com sucrase.
+ - Validação dos inputs/Limites.
  - Uso de classes.
 
 ### Melhorias FrontEnd:
- - Sem react-redux, persist.
- - Sem tests
- - Sem Validação dos inputs
+ - React-redux, persist.
+ - Tests
+ - Validação dos inputs
