@@ -15,3 +15,6 @@ Desafio Aeroporto
  - Uso de classes.
 
  --------------------
+ -- Sem react-redux, persist
+ -- Sem tests
+ -- Sem Validação dos inputs
