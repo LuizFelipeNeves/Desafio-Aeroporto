@@ -7,7 +7,6 @@
     "scripts": {
         "test": "mocha",
         "fixlint": "eslint -c .eslintrc . --fix",
-        "build": "npm run fixlint && npm run test",
         "dev": "nodemon server.js",
         "start": "node server.js"
     },
